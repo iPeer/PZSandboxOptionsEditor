@@ -23,7 +23,7 @@ consoleHandler.setFormatter(formatter)
 log.addHandler(consoleHandler)
 
 argp = argparse.ArgumentParser()
-argp.add_argument("--file", "--bin", "-f", "-b", dest="sandbox_file", required=True, help="The path to the map_sand.bin file you want to parse.")
+argp.add_argument("--file", "--bin", "-f", "-b", dest="sandbox_file", required=True, help="With --dump: The path the the map_sand.bin files. With --save: The path to the modified map_sand.json file.")
 argp.add_argument("--output", "-o", dest="sand_out", default="map_sand.bin", help="The output file name for the saved map_sand.bin file. Defaults to map_sand.bin. No effect if --dump is specified.")
 argp.add_argument("--dump", "-d", action="store_true", dest="is_dump", help="Are we DUMPING the map_sand.bin file (ie. making it editable)?")
 argp.add_argument("--save", "-s", action="store_true", dest="is_save", help="Are we SAVING the map_sand.bin file (ie. making it usable by the game)?")
