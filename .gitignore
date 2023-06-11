@@ -1,0 +1,6 @@
+*.log
+*.hex
+__pycache__
+PZSource/*
+output/*
+Test-Files/*
