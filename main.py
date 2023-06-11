@@ -27,8 +27,8 @@ argp.add_argument("--file", "--bin", "-f", "-b", dest="sandbox_file", required=T
 argp.add_argument("--output", "-o", dest="sand_out", default="map_sand.bin", help="The output file name for the saved map_sand.bin file. Defaults to map_sand.bin. No effect if --dump is specified.")
 argp.add_argument("--dump", "-d", action="store_true", dest="is_dump", help="Are we DUMPING the map_sand.bin file (ie. making it editable)?")
 argp.add_argument("--save", "-s", action="store_true", dest="is_save", help="Are we SAVING the map_sand.bin file (ie. making it usable by the game)?")
-argp.add_argument("--forcemajorversion", "-fmav", dest="forced_major_version", default=195, help="Force the map_sand file MAJOR version indicator to a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
-argp.add_argument("--forceminorversion", "-fmiv", dest="forced_minor_version", default=5, help="Force the map_sand file MINOR version indicator to a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
+argp.add_argument("--forcemajorversion", "-fmav", dest="forced_major_version", default=195, type=int, help="Force the map_sand file MAJOR version indicator to a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
+argp.add_argument("--forceminorversion", "-fmiv", dest="forced_minor_version", default=5, type=int, help="Force the map_sand file MINOR version indicator to a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
 argp.add_argument("--verbose", action="store_true", dest="verbose", help="Enabled version (debug) logging")
 argp.add_argument("--getversion", "--getfileversion", action="store_true", dest="should_test_version", help="Check the file version of the provided map_sand.bin file. Useful if you need to compile for an older/newer game version.")
 
