@@ -10,8 +10,9 @@ from PZParseExceptions import InvalidBinFileError
 
 
 class OptionsParsingMode(Enum):
-    DUMP = 0,
-    SAVE = 1,
+    DUMP = 0
+    SAVE = 1
+    GET_VERSION = 2
 
 class SandboxOptionsParser:
     def __init__(self, mode: OptionsParsingMode, file: str, output: str, _logger: logging.Logger, argv: Namespace):
@@ -20,6 +21,28 @@ class SandboxOptionsParser:
         self._input_file = file
         self._mode = mode
         self._argv = argv
+
+    def getVersion(self):
+        if os.path.exists(self._input_file):
+            self._log.info("Reading bin_sand data from file '%s'", self._input_file)
+            file_data: bytes
+            with open(self._input_file, "rb") as f:
+                file_data = bytes(f.read())
+            sb_data: ByteBuffer = ByteBuffer(file_data)
+            #value == 83 && value2 == 65 && value3 == 78 && value4 == 68
+            magic: bytes = b'SAND'
+            magic_challenge = sb_data.get(4)
+            if magic_challenge != magic: # Check if the first 4 bytes of the file == "SAND"
+                _str = "The file specified does not appear to be a valid map_sand.bin file. Expected \"{}\", got \"{}\"".format(magic, magic_challenge) # pylint: disable=consider-using-f-string
+                self._log.error(_str)
+                raise InvalidBinFileError(_str)
+
+            self._log.debug("File magic is valid")
+            major_version: int = sb_data.getInt()
+            minor_version: int = sb_data.getInt()
+
+            self._log.info("map_sand.bin MAJOR version is %i", major_version)
+            self._log.info("map_sand.bin MINOR version is %i", minor_version)
 
     def dump(self):
         if self._mode != OptionsParsingMode.DUMP:
@@ -96,8 +119,8 @@ class SandboxOptionsParser:
             byteBuffer = ByteBuffer(bytearray())
             # write the header
             byteBuffer.put(b'SAND') # File magic header
-            byteBuffer.putInt(self._argv.forced_version) # version identifier?
-            byteBuffer.putInt(5) # ???
+            byteBuffer.putInt(self._argv.forced_major_version) # version identifier?
+            byteBuffer.putInt(self._argv.forced_minor_vesion) # also a version identifier
             byteBuffer.putInt(len(jsonData))
             for k,v in jsonData.items():
                 byteBuffer.writePZString(k)
