@@ -10,6 +10,9 @@ This tool is provided 'as-is'. While it has been tested to work there is no guar
 * Python 9.3.16 or later
 * A map_sand.bin file from Project Zomboid Build 41
 
+# Known Supported Versions
+* Project Zomboid Build 41
+
 # PZSandboxOptionsEditor
 
 This command line tool allows players of Project Zomboid to modify their save's sandbox settings (map_sand.bin) after they have started their game without the need to create a new save from scratch and copy the new files over.
