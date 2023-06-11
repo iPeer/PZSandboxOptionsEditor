@@ -11,7 +11,7 @@ This tool is provided 'as-is'. While it has been tested to work there is no guar
 * A map_sand.bin file from Project Zomboid Build 41
 
 # Known Supported Versions
-* Project Zomboid Build 41
+* Project Zomboid Build 41 (41.78.16)
 
 # PZSandboxOptionsEditor
 
