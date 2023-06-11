@@ -30,7 +30,7 @@
                 "./output/map_sand.json",
                 "--save",
                 "--output",
-                "./output/map_sand_test.bin",
+                "map_sand_test.bin",
                 "--verbose"
             ]
         },
@@ -46,7 +46,7 @@
                 "./Test-Files/map_sand.bin",
                 "--getversion",
                 "--output",
-                "./output/map_sand_test.bin",
+                "map_sand_test.bin",
                 "--verbose"
             ]
         }
