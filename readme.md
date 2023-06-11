@@ -7,7 +7,7 @@ This tool is provided 'as-is'. While it has been tested to work there is no guar
 **Back up your map_sand.bin file before applying one created by this tool. There is no guanratee that it won't break your save.**
 
 # Requirements
-* Python 9.3.16 or later
+* Python 3.9.16 or later
 * A map_sand.bin file from Project Zomboid Build 41
 
 # Known Supported Versions
@@ -19,7 +19,7 @@ This command line tool allows players of Project Zomboid to modify their save's 
 
 # Usage
 
-First, make sure you have Python 9.3.16 or later installed.
+First, make sure you have Python 3.9.16 or later installed.
 
 Next, you'll need the tools files, you can get them by either downloading the source from github, or by cloning the repository locally. If you downloaded them, extract them somewhere you can find them.
 
