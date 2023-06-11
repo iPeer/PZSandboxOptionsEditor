@@ -120,7 +120,7 @@ class SandboxOptionsParser:
             # write the header
             byteBuffer.put(b'SAND') # File magic header
             byteBuffer.putInt(self._argv.forced_major_version) # version identifier?
-            byteBuffer.putInt(self._argv.forced_minor_vesion) # also a version identifier
+            byteBuffer.putInt(self._argv.forced_minor_version) # also a version identifier
             byteBuffer.putInt(len(jsonData))
             for k,v in jsonData.items():
                 byteBuffer.writePZString(k)
