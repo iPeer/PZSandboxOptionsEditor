@@ -43,5 +43,5 @@ To make the file usable by the game we need to run another command with the tool
 Once the process is complete, copy the `map_sand.bin` file from the `output` directory into your save directory that we found earlier. Note that some settings may take some in-game time to take effect and/or be noticable, and options that modify spawns may not take effect if an area has already been visited, and some changes may never take effect at all.
 
 # Past/Future game versions
-As mentioned above, while this tool may be able to create files for older or newer versions of the game, there is no guarantee that it can (unles the version is specified in the "Known Supported Versions" section) If you wish to create files for older or newer game versions, please run `python main.py --help` and look into the `--checkversion`, `--forcemajorversion`, and `--forceminorversion` switches.
+As mentioned above, while this tool may be able to create files for older or newer versions of the game, there is no guarantee that it can (unles the version is specified in the "Known Supported Versions" section) If you wish to create files for older or newer game versions, please run `python main.py --help` and look into the `--checkversion`, `--forceworldversion`, and `--forceminorworldversion` switches.
 

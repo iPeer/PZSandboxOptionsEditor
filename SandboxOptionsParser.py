@@ -41,8 +41,8 @@ class SandboxOptionsParser:
             major_version: int = sb_data.getInt()
             minor_version: int = sb_data.getInt()
 
-            self._log.info("map_sand.bin MAJOR version is %i", major_version)
-            self._log.info("map_sand.bin MINOR version is %i", minor_version)
+            self._log.info("World version is %i", major_version)
+            self._log.info("map_sand.bin version is %i", minor_version)
 
     def dump(self):
         if self._mode != OptionsParsingMode.DUMP:
@@ -66,9 +66,9 @@ class SandboxOptionsParser:
                 raise InvalidBinFileError(_str)
 
             self._log.debug("File magic is valid")
-            check: int = sb_data.getInt()
-            if check >= 88:
-                if check >= 131:
+            worldVersion: int = sb_data.getInt()
+            if worldVersion >= 88:
+                if worldVersion >= 131:
                     # There is an int here we need to skip over, if it's later needed unquote the second line and quote the first
                     sb_data.skip(4)
                     #int2: int = sb_data.getInt() # we need to read another int here to get the buffer in the right place
@@ -119,7 +119,7 @@ class SandboxOptionsParser:
             byteBuffer = ByteBuffer(bytearray())
             # write the header
             byteBuffer.put(b'SAND') # File magic header
-            byteBuffer.putInt(self._argv.forced_major_version) # version identifier?
+            byteBuffer.putInt(self._argv.forced_major_version) # world version
             byteBuffer.putInt(self._argv.forced_minor_version) # also a version identifier
             byteBuffer.putInt(len(jsonData))
             for k,v in jsonData.items():
