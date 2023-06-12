@@ -4,7 +4,8 @@ First of, I suck at writing these kinds of things, so hopefully it all makes sen
 
 This tool is provided 'as-is'. While it has been tested to work there is no guarantee that will be true in the future, or that nothing may go wrong. **Always back up your original file before modifying**. This tool has been tested against a save from **Build 41**. While it may work with newer version of the game, there are not guarantees.
 
-**Back up your map_sand.bin file before applying one created by this tool. There is no guanratee that it won't break your save.**
+* **This mod is not made to be compatible with mods that add their own configuration items to the game's sandbox options screen.**
+* **Back up your map_sand.bin file before applying one created by this tool. There is no guanratee that it won't break your save.**
 
 # Requirements
 * Python 3.9.16 or later
