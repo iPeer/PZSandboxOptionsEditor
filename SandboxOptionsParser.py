@@ -67,25 +67,27 @@ class SandboxOptionsParser:
 
             self._log.debug("File magic is valid")
             worldVersion: int = sb_data.getInt()
-            if worldVersion >= 88:
-                if worldVersion >= 131:
-                    # There is an int here we need to skip over, if it's later needed unquote the second line and quote the first
-                    sb_data.skip(4)
-                    #int2: int = sb_data.getInt() # we need to read another int here to get the buffer in the right place
-                    check3: int = sb_data.getInt()
-                    for i in range(0, check3, 1):
-                        if i > check3:
-                            break
-                        # Read string which I can't be arsed to do here
-                        optionName: str = sb_data.readPZString()
-                        optionValue: Union[str, int, bool, float] = self.getAsCorrectType(sb_data.readPZString())
+            if worldVersion >= 131:
+                # There is an int here we need to skip over, if it's later needed unquote the second line and quote the first
+                sb_data.skip(4)
+                #int2: int = sb_data.getInt() # we need to read another int here to get the buffer in the right place
+                check3: int = sb_data.getInt()
+                for i in range(0, check3, 1):
+                    if i > check3:
+                        break
+                    # Read string which I can't be arsed to do here
+                    optionName: str = sb_data.readPZString()
+                    optionValue: Union[str, int, bool, float] = self.getAsCorrectType(sb_data.readPZString())
 
-                        sandboxOptions.update({optionName: optionValue})
-            os.makedirs("./output", exist_ok=True)
-            with open("./output/map_sand.json", "w", encoding="UTF-8") as f:
-                json.dump(sandboxOptions, f, indent=4)
-            self._log.info("Dump complete. Contents dumped to '/output/map_sand.json'. Make edits and then use --save to compile to something the game can use.")
-            self._log.warning("PLEASE BACK UP YOUR EXISTING map_sand.bin FILE BEFORE APPLYING ONE CREATED BY THIS TOOL. IF YOU LOSE YOUR SAVE, IT'S NOT MY FAULT.")
+                    sandboxOptions.update({optionName: optionValue})
+                os.makedirs("./output", exist_ok=True)
+                with open("./output/map_sand.json", "w", encoding="UTF-8") as f:
+                    json.dump(sandboxOptions, f, indent=4)
+                self._log.info("Dump complete. Contents dumped to '/output/map_sand.json'. Make edits and then use --save to compile to something the game can use.")
+                self._log.warning("PLEASE BACK UP YOUR EXISTING map_sand.bin FILE BEFORE APPLYING ONE CREATED BY THIS TOOL. IF YOU LOSE YOUR SAVE, IT'S NOT MY FAULT.")
+
+            else:
+                self._log.error("File is too old to be dumped. World version must be >130 (got %i)", worldVersion)
 
         else:
             _str = f"Specified input file {self._input_file} doesn't exist!"
