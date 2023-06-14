@@ -30,7 +30,7 @@ argp.add_argument("--save", "-s", action="store_true", dest="is_save", help="Are
 argp.add_argument("--worldversion", "--forceworldversion", "-fwv", dest="world_version", default=195, type=int, help="Force the world version for the file to be a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
 argp.add_argument("--sandboxversion", "--forcesandboxversion", "-fsv", dest="sandbox_version", default=5, type=int, help="Force the sandbox version for the file to be a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
 argp.add_argument("--verbose", action="store_true", dest="verbose", help="Enabled version (debug) logging")
-argp.add_argument("--getversion", "--getfileversion", action="store_true", dest="should_test_version", help="Check the world and sandbox versions of the provided map_sand.bin file. Useful if you need to export for an older/newer game version.")
+argp.add_argument("--getversion", "--getfileversion", "--checkversion", action="store_true", dest="should_test_version", help="Check the world and sandbox versions of the provided map_sand.bin file. Useful if you need to export for an older/newer game version.")
 
 args: argparse.Namespace = argp.parse_args()
 
