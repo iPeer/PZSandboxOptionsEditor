@@ -3,7 +3,7 @@ This file contains information of all available settings' values present within 
 * Default values are based on regular apocalypse difficulty
 * More obscurely named settings will have some text to explain what they do.
 * With integer values, the number increments going **down** the list. The top option being 1, the second 2, third 3 and so on.
-  * Example: For **ZombieLore.Transmission**, settings this to **1** would set it to Blood + Saliva transmition, while setting it to **2** would set it to Saliva only.
+  * Example: For **ZombieLore.Transmission**, setting this to **1** would set it to Blood + Saliva transmition, while setting it to **2** would set it to Saliva only.
 
 # Map.AllowMiniMap
 
