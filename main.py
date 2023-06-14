@@ -27,10 +27,10 @@ argp.add_argument("--file", "--bin", "-f", "-b", dest="sandbox_file", required=T
 argp.add_argument("--output", "-o", dest="sand_out", default="map_sand.bin", help="The output file name for the saved map_sand.bin file. Defaults to map_sand.bin. No effect if --dump is specified.")
 argp.add_argument("--dump", "-d", action="store_true", dest="is_dump", help="Are we DUMPING the map_sand.bin file (ie. making it editable)?")
 argp.add_argument("--save", "-s", action="store_true", dest="is_save", help="Are we SAVING the map_sand.bin file (ie. making it usable by the game)?")
-argp.add_argument("--forceworldversion", "-fmav", dest="forced_major_version", default=195, type=int, help="Force teh world version for the file to be a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
-argp.add_argument("--forceminorworldversion", "-fmiv", dest="forced_minor_version", default=5, type=int, help="Force the map_sand file MINOR version indicator to a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
+argp.add_argument("--worldversion", "--forceworldversion", "-fwv", dest="world_version", default=195, type=int, help="Force the world version for the file to be a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
+argp.add_argument("--sandboxversion", "--forcesandboxversion", "-fsv", dest="sandbox_version", default=5, type=int, help="Force the sandbox version for the file to be a specific value. DO NOT USE THIS UNLESS YOU KNOW WHAT YOU'RE DOING.")
 argp.add_argument("--verbose", action="store_true", dest="verbose", help="Enabled version (debug) logging")
-argp.add_argument("--getversion", "--getfileversion", action="store_true", dest="should_test_version", help="Check the world and file versions of the provided map_sand.bin file. Useful if you need to compile for an older/newer game version.")
+argp.add_argument("--getversion", "--getfileversion", action="store_true", dest="should_test_version", help="Check the world and sandbox versions of the provided map_sand.bin file. Useful if you need to export for an older/newer game version.")
 
 args: argparse.Namespace = argp.parse_args()
 
