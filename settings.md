@@ -424,13 +424,22 @@ UI Values:
 
 # WaterShutModifier
 
-***Unknown***
+*The number of days after which the Water will shut off*
+* Cannot be directly modified during world creation, instead generated upon entering the world for the first time.
+
 *Integer*
+* -1 (instant)
+* 0+ (# of days, 0 meaning it will shut off during the first day)
 
 # ElecShutModifier
 
-***Unknown***
+*The number of days after which the Electrcity will shut off*
+* Cannot be directly modified during world creation, instead generated upon entering the world for the first time.
+
 *Integer*
+* -1 (instant)
+* 0+ (# of days, 0 meaning it will shut off during the first day)
+
 
 # Alarm
 
